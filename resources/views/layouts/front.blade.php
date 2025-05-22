@@ -40,6 +40,8 @@
     <link href="{{ asset('front/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/css/custom.css') }}" rel="stylesheet">
     @stack('header-css')
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
     <link rel='stylesheet prefetch'
     href='//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css'>
     <link href="{{ asset('assets/node_modules/sweetalert/sweetalert.css') }}" rel="stylesheet">
@@ -129,30 +131,26 @@
 <!-- END Topbar -->
 
 <!-- Header -->
+@if (!request()->is('/'))
 <header class="bg-img-shape">
-        
     <div class="header inner-header" style="background-image: url({{ $frontTheme->background_image_url }})" data-overlay="8">
         <div class="container text-center">
-
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-
                     @yield('header-text')
-
                 </div>
             </div>
-
         </div>
     </div>
 </header>
+@endif
+
 <!-- END Header -->
 
 <!-- Main container -->
-<main class="main-content">
 
     @yield('content')
 
-</main>
 {{-- Ajax Modal Start for --}}
     <div class="modal fade bs-modal-md in" id="addJobAlert" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
