@@ -311,7 +311,7 @@
                         If you're looking for more than just a job — a place where passion meets purpose — then 5 Core
                         is the opportunity you've been waiting for.
                         Join a driven, dynamic team at one of the leading names in audio and music equipment, and
-                        experience what it's like to truly love where you work.
+                        experience what it's like to truly love where you work ..
                     </p>
 
                     <div class="divider"></div>
