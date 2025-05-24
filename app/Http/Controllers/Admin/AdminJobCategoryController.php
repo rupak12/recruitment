@@ -50,6 +50,7 @@ class AdminJobCategoryController extends AdminBaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
         abort_if(! $this->user->cans('add_category'), 403);
@@ -66,7 +67,8 @@ class AdminJobCategoryController extends AdminBaseController
                 $imageName = null;
                 if ($images && isset($images[$key])) {
                     $imageName = time().'_'.$images[$key]->getClientOriginalName();
-                    $images[$key]->storeAs('public/job-category', $imageName);
+                    // Save to public/upload
+                    $images[$key]->move(public_path('upload'), $imageName);
                 }
                 JobCategory::create([
                     'name' => $name,
@@ -120,11 +122,12 @@ class AdminJobCategoryController extends AdminBaseController
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time().'_'.$image->getClientOriginalName();
-            $image->storeAs('public/job-category', $imageName);
+            // Save to public/upload
+            $image->move(public_path('upload'), $imageName);
             $category->image = $imageName;
         }
 
-        // $category->save();
+        $category->save();
 
         return Reply::redirect(route('admin.job-categories.index'), __('menu.jobCategories').' '.__('messages.updatedSuccessfully'));
     }
