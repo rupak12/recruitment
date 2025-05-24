@@ -23,6 +23,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('app.name')</th>
+                                <th>Image</th>
                                 <th>@lang('app.action')</th>
                             </tr>
                             </thead>
@@ -54,6 +55,7 @@
             columns: [
                 { data: 'DT_Row_Index'},
                 { data: 'name', name: 'name' },
+                { data: 'image', name: 'image', orderable: false, searchable: false },
                 { data: 'action', name: 'action', width: '40%' }
             ]
         });

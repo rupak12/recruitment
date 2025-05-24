@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                     <input type="file" name="image" class="form-control" accept="image/*">
                                     @if($category->image)
-                                        <img src="{{ asset('storage/job-category/'.$category->image) }}" alt="Category Image" width="80" class="mt-2">
+                                        <img src="{{ asset('upload/'.$category->image) }}" alt="Category Image" width="80" class="mt-2">
                                     @endif
                                 </div>
                             </div>
